@@ -1,0 +1,105 @@
+*, *::after, *::before{
+    box-sizing: border-box; /* border padding within width and height */
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --cell-width: 100px;
+    --mark-size: calc(var(--cell-width)*0.9);
+}
+
+/* ---------- Board -------------- */
+
+.board{
+    /* Fill Board to Entire Screen */
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    justify-content: center; /* horizontal */
+    align-content: center; /* vertical */
+    grid-template-columns: repeat(3, auto);
+
+    /* For Marks */
+    align-items: center;
+    justify-items: center;
+}
+
+/* ---------- Board Cells -------------- */
+.cell{
+    border: 1px solid black;
+    height: var(--cell-width);
+    width: var(--cell-width);
+
+    /* To make cross visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+/* ---------- Cursor ------------ */
+.cell.x,
+.cell.circle{
+    cursor: not-allowed;
+}
+
+/* ---------- Remove Extra Border -------------- */
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8){
+    border-bottom: none;
+}
+
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+
+.cell:nth-child(3n+3){
+    border-right: none;
+}
+
+/* ---------- X and O -------------- */
+
+.cell.x::before,
+.cell.x::after{
+    content: '';
+    width: calc(var(--mark-size)*.15);
+    height: var(--mark-size);
+    background-color: black;
+    position: absolute; /* two divs not one behind other */ 
+}
+
+.cell.x::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after{
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after{
+    content: '';
+    background-color: black;
+    width: var(--mark-size);
+    height: var(--mark-size);
+    position: absolute;
+    border-radius: 50%;
+}
+
+.cell.circle::after{
+    width: calc(var(--mark-size)*.75);
+    height: calc(var(--mark-size)*.75);
+    background-color: white;
+}
+
+

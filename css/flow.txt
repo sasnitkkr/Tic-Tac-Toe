@@ -1,0 +1,12 @@
+New Things to Learn
+1. nth child
+2. not selector
+
+
+step1:- Set Files and check if attached
+step2:- make grid using div and css
+step3:- work on cross
+step4:- work on circle
+step5:- work on pointer 
+        a. not allowed
+        b. hand
