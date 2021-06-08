@@ -10,21 +10,19 @@
 <body>
     <!-- id to seperate css from js -->
     <div class="board" id="board">
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
-        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="0"></div>
+        <div class="cell" data-cell id="1"></div>
+        <div class="cell" data-cell id="2"></div>
+        <div class="cell" data-cell id="3"></div>
+        <div class="cell" data-cell id="4"></div>
+        <div class="cell" data-cell id="5"></div>
+        <div class="cell" data-cell id="6"></div>
+        <div class="cell" data-cell id="7"></div>
+        <div class="cell" data-cell id="8"></div>
     </div>
-    <div class="winning__message">
+    <div class="winning__message" id="winning-message-modal">
         <div class="winning__message-content" id="winningMessage">
-            <div data-winning-message-text>
-               <h1></h1>
-            </div>
+               <h1 id="win-message-text"></h1>
             <button id="restartButton">Restart</button>
         </div>
     </div>

@@ -15,3 +15,27 @@ step4:- work on circle
 step5:- work on pointer 
         a. not allowed
         b. hand
+
+
+Js
+1. Add event listeners to cells
+2. place mark
+3. check win / draw
+4. else swap turn
+
+
+0 1 2
+3 4 5
+6 7 8
+
+ if Win -> h=> 0 3 6, 1 4 7, 2 5 8,
+       v=> 0 1 2, 3 4 5, 6 7 8,
+       d=> 0 4 8, 2 4 6
+else if (all full) draw
+else continue
+ 
+
+startGame()
+1. board empty
+1. mat initialse
+3. clear cells
