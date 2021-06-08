@@ -5,10 +5,11 @@
 }
 
 :root{
-    --cell-width: 100px;
-    --mark-size: calc(var(--cell-width)*0.9);
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size)*0.9);
     --mark-color: black;
     --mark-color-alt: gray;
+    --z-modal: 1000;
 }
 
 /* ---------- Board -------------- */
@@ -19,23 +20,29 @@
     height: 100vh;
 
     display: grid;
-    justify-content: center; /* horizontal */
-    align-content: center; /* vertical */
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, auto); 
+    /*width set auto to make cells stick 
+     width is equal to individual cell width
+    */
 
-    /* For Marks */
+    /* For 100x100 box(items of grid) at center of excel grid */
     align-items: center;
     justify-items: center;
+    
+    /*The Content is all div-items(cells)*/
+    justify-content: center;
+    align-content: center;
 }
 
 /* ---------- Board Cells -------------- */
 .cell{
     border: 1px solid black;
-    height: var(--cell-width);
-    width: var(--cell-width);
+    height: var(--cell-size);
+    width: var(--cell-size);
 
-    /* To make cross visible */
-    display: flex;
+    /* make cross at center of cell
+    Note :- after rotating it moves out of cell */
+    display: flex;  
     justify-content: center;
     align-items: center;
 
@@ -78,11 +85,15 @@
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after
 {
-    content: '';
+    content: ''; /* empty */
+
     width: calc(var(--mark-size)*.15);
     height: var(--mark-size);
     background-color: black;
-    position: absolute; /* two divs not one behind other */ 
+
+     /* two divs not one behind other
+     make mark visible */
+    position: absolute; 
 }
 
 .board.x .cell:not(.x):not(.circle):hover::before,
@@ -148,3 +159,53 @@
 .board.x .cell:not(.x):not(.circle):hover::after{
     transform: rotate(-45deg);
 } */
+
+
+/* Modal */
+
+.winning__message{
+
+    visibility: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgb(0,0,0,.15);
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-modal);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.winning__message-content{
+    position: relative;
+    width: 60%;
+    height: 60%;
+    background-color: black;
+    border-radius: 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+.winning__message-content button{
+    margin-top: 2rem;
+    border-radius: 10%;
+    padding: 1rem;
+}
+
+.winning__message.show{
+    visibility: visible;
+}

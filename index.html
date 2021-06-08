@@ -8,22 +8,25 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- id to seperate css from js -->
     <div class="board" id="board">
-        <div class="cell x" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
-        <div class="cell" id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
+        <div class="cell" data-cell id="cell"></div>
     </div>
-    <div class="winning__message" id="winning-message">
-        <div>
-
+    <div class="winning__message">
+        <div class="winning__message-content" id="winningMessage">
+            <div data-winning-message-text>
+               <h1></h1>
+            </div>
+            <button id="restartButton">Restart</button>
         </div>
-        <button id="restart-button"></button>
     </div>
 </body>
 <script src="index.js"></script>
